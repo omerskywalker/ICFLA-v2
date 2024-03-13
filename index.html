@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/public/mosque-favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="src/googlemaps.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ICFLA</title>
+  </head>
+  <body class="bebas-neue-regular">
+  <!-- HEADER BEGINNING -->
+
+    <div id="header">
+      <div class="greeting">
+        <h1 class="header-text bebas-neue-regular">In the name of <span class="yellow">Allah</span>, <br /> The Most Gracious, Most Merciful</h1>
+      </div>
+      <div class="name-container">
+        <h1 class="header-text name main-name yellow">Masjid Al-Rahman</h1>
+        <h1 class="header-text name fville">The Islamic Center of Farmerville | <a class="link" target="_blank" href="https://maps.app.goo.gl/QikAYDETbrYpK8ka9">409 Thomas St, Farmerville, LA 71241</a></h1>  
+      </div>
+    </div>
+<!-- HEADER END -->
+
+<!-- MAIN BEGINNING -->
+<div class="main-outer">
+  <div class="main-inner">
+    <div class="main-top-header">
+      <h1 class="main-header header-text">Inside Our Masjid</h1>
+    </div>
+    <div class="main-top-row">
+      <div class="top-row-item"><img src="public/icfla-img-1.png" class="img-1"></a></div>
+      <div class="top-row-item"><img src="public/icfla-img-2.png" class="img-2"></a></div>
+      <div class="top-row-item"><img src="public/icfla-img-3.png" class="img-3"></a></div>
+    </div>
+    <div class="main-bottom-row">
+      <div class="main-bottom-left">
+        <h1 class="main-header header-text">Prayer Times</h1>
+
+        <table class="prayer-times-table">
+          <thead>
+            <tr>
+              <th>Prayer</th>
+              <th>Prayer Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Fajr</td>
+              <td id="fajrTime"></td>
+            </tr>
+            <tr>
+              <td>Sunrise ☀️</td>
+              <td id="sunriseTime"></td>
+            </tr>
+            <tr>
+              <td>Dhuhr</td>
+              <td id="dhuhrTime"></td>
+            </tr>
+            <tr>
+              <td>Jumu'ah</td>
+              <td id="jummahTime"></td>
+            </tr>
+            <tr>
+              <td>Asr</td>
+              <td id="asrTime"></td>
+            </tr>
+            <tr>
+              <td>Maghrib 🌙</td>
+              <td id="maghribTime"></td>
+            </tr>
+            <tr>
+              <td>Isha</td>
+              <td id="ishaTime"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="main-bottom-right">
+        <h1 class="main-header header-text">Locate Us</h1>
+        <div id="map"></div>
+      </div>
+        
+    </div>
+  </div>
+</div>
+<!-- MAIN END -->
+
+<!-- DONATE BEGINNING -->
+<div class="donate-outer">
+  <div class="donate-inner">
+    <div class="donate-top-header">
+      <h1 class="donate-header header-text">Sadaqah</h1>
+      <h1 class="donate-header header-text sub-header">(Donations)</h1>
+    </div>
+    <div class="donate-bottom-row">
+      <div class="donate-bottom-left">
+        <div class="donate-btc">
+          <div class="donate-btc-header">
+            <h1 class="donate-btc-header-text header-text">
+              Donate with ₿itcoin
+            </h1>
+          </div>
+          <div class="donate-btc-img">
+            <img src="public/BTC-QR.png" alt="qr-code" class="btc-qr">
+          </div>
+          <div class="donate-btc-address">
+            <h1 class="donate-btc-header-text header-text address">
+              BTC Address: <br /> bc1qj60yarntprn2vsddwltauja3jkskn0jxcfvf7lwxwy9l42ufmz2sek87ka
+            </h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="donate-bottom-middle">
+        <div class="donate-lightning">
+          <div class="donate-lightning-header">
+            <h1 class="donate-lightning-header-text header-text">
+              Donate with Lightning ⚡️
+            </h1>
+          </div>
+          <div class="donate-lightning-img">
+            <img src="public/lightning-QR.jpeg" alt="qr-code" class="lightning-qr">
+          </div>
+        </div>
+      </div>
+
+      <div class="donate-bottom-right">
+        <div class="donate-zelle">
+          <div class="donate-zelle-header">
+           <h1 class="donate-zelle-header-text header-text">Donate with </h1>
+           <img src="public/zelle-logo.png" alt="zelle-logo" class="zelle">
+        </div>
+        <div class="zelle-address">
+          <h1 class="donate-zelle-address header-text">ICFLA786@gmail.com</h1>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+<!-- DONATE END -->
+
+<!-- FOOTER BEGINNING -->
+
+<div class="footer-outer">
+  <div class="footer-inner">
+
+  </div>
+</div>
+
+
+<!-- FOOTER END -->
+
+
+
+
+<script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+  ({key: "AIzaSyDmxA1Eemkh597IyMhCwmVrBt14MYyvdC4", v: "weekly"});</script>
+    <script type="module" src="/src/main.ts"></script>
+    <script>
+      
+
+let map;
+
+async function initMap() {
+  const { Map } = await google.maps.importLibrary("maps");
+  const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+  const position = { lat: 32.77167211151958, lng: -92.40109711044289 };
+
+
+  map = new Map(document.getElementById("map"), {
+    center: position,
+    zoom: 18,
+    mapId: "ce5579e5a83f7445"
+    //mapTypeId: 'satellite'
+  });
+  
+  const marker = new AdvancedMarkerElement({
+            //const marker = new google.maps.Marker({
+            map,
+            position: position,
+        });
+}
+
+initMap();
+    </script>
+  </body>
+</html>
