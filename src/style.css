@@ -315,3 +315,20 @@ table {
 .mt {
   margin-top: 0px;
 }
+
+.donate-stripe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.donate-stripe-header-text {
+  font-size: 3rem;
+  text-shadow: 1px 1px 1px black;
+  margin-bottom: 0;
+}
+
+.ProductImage-imageContainer img {
+  border: 2px solid black;
+}
