@@ -12,7 +12,7 @@ body {
 #header {
   margin-top: 0;
   padding: 0% 2%;
-  background: url(public/islamic-background.jpeg);
+  background: url(/islamic-background.jpeg);
   background-position: top;
   background-size: 100% auto;
   background-repeat: no-repeat;
@@ -100,7 +100,7 @@ h1 {
   margin: 20px 10px;
 }
 
-.main-header, .donate-header {
+.main-header, .donate-header, .footer-header {
   color: black;
   text-shadow: 1px 1px 1px #FFB606;
   font-size: 4rem;
@@ -129,13 +129,17 @@ h1 {
 }
 
 .main-bottom-right {
-  height: 620.2px;
+  height: 554.2px;
   padding: 4%;
   padding-top: 1%;
 }
 
+table {
+  border: 3px solid #FFB606;
+}
+
 .prayer-times-table {
-  width: 90%;
+  width: 100%;
   border-collapse: collapse;
   background-color: #fffff2;
   margin-top: 0px;
@@ -159,6 +163,11 @@ h1 {
 
 .prayer-times-table tr:nth-child(odd) td {
   background-color: #fffff2;
+}
+
+#map {
+  height: 482.5px !important;
+  border: 3px solid #FFB606;
 }
 
 .donate-outer {
@@ -269,12 +278,13 @@ h1 {
   width: 100%;
   background-color: black;
   margin-right: 1.4%;
-  height: 300px;
+  padding: 1%;
 }
 
 .lightning-qr {
-  height: 300px;
-  width: 300px;
+  height: 285px;
+  width: 292px;
+  border: 7px solid black;
 }
 
 .donate-lightning {
@@ -283,4 +293,25 @@ h1 {
 
 .donate-lightning-header {
   margin-bottom: 5px;
+}
+
+.footer-header {
+  color: #fffff2;
+  text-shadow: 1px 1px 1px #FFB606;
+  padding-top: 0;
+}
+
+.contact {
+  text-align: center;
+}
+
+.email-link {
+  text-decoration: none;
+  color: white;
+  text-shadow: 0.5px 0.5px 1px #FFB606;
+  text-align: center;
+}
+
+.mt {
+  margin-top: 0px;
 }
