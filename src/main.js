@@ -3,7 +3,7 @@ import { Coordinates, CalculationMethod, PrayerTimes } from 'adhan';
 import moment from 'moment-timezone';
 
 const coordinates = new Coordinates(32.77167211151958, -92.40109711044289);
-const params = CalculationMethod.MoonsightingCommittee();
+const params = CalculationMethod.NorthAmerica();
 const date = new Date();
 
 const prayerTimes = new PrayerTimes(coordinates, date, params);
