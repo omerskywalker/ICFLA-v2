@@ -237,6 +237,10 @@ table {
   opacity: 0;
 }
 
+.BuyButton-container.is-cardLayout {
+  background-color: black;
+}
+
 .address {
   text-shadow: 0.5px 0.5px 1px black;
   font-size: 0.75rem !important;
