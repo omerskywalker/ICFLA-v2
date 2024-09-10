@@ -372,6 +372,9 @@ table {
     width: 100%;
     margin-top: 7%;
   }
+  .donate-header {
+    height: 15vh;
+  }
   .main-name {
     font-size: 3.6rem;
     text-align: center;
