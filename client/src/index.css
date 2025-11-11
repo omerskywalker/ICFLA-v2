@@ -10,7 +10,7 @@
   --elevate-1: rgba(255,255,255, .04);
   --elevate-2: rgba(255,255,255, .09);
   --background: 0 0% 9%;
-  --foreground: 40 5% 98%;
+  --foreground: 0 0% 100%;
   --border: 0 0% 20%;
   --card: 0 0% 12%;
   --card-foreground: 40 5% 98%;
@@ -327,10 +327,11 @@
     animation: pulse-glow 4s ease-in-out infinite;
   }
 
-  /* Enlarge paragraph and body text */
+  /* Enlarge paragraph and body text - make white for better contrast */
   p {
-    font-size: 1.0625rem;
-    line-height: 1.6;
+    font-size: 1.125rem;
+    line-height: 1.65;
+    color: hsl(var(--foreground));
   }
 
   /* Navigation text sizing */

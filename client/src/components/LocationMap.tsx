@@ -4,8 +4,8 @@ import { Button } from '@/components/ui/button';
 import { MapPin, Navigation } from 'lucide-react';
 
 export default function LocationMap() {
-  const address = 'Islamic Center of Farmerville, Louisiana';
-  const mapsUrl = 'https://www.google.com/maps/search/Islamic+Center+of+Farmerville+Louisiana';
+  const address = '409 Thomas St, Farmerville, Louisiana';
+  const mapsUrl = 'https://www.google.com/maps/search/409+Thomas+St+Farmerville+Louisiana';
 
   return (
     <section className="py-20 md:py-28 bg-card/50">
@@ -18,7 +18,7 @@ export default function LocationMap() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 text-primary">Locate Us</h2>
-          <p className="text-foreground/80 text-lg md:text-xl font-serif">Visit us for prayers and community events</p>
+          <p className="text-lg md:text-xl font-serif">Visit us for prayers and community events</p>
         </motion.div>
 
         <motion.div
@@ -50,8 +50,10 @@ export default function LocationMap() {
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-heading font-bold text-xl mb-2 text-primary">Address</h3>
-                  <p className="text-foreground/80 font-serif">{address}</p>
+                  <h3 className="font-heading font-bold text-xl mb-3 text-primary">Address</h3>
+                  <p className="font-serif text-base mb-1">Islamic Center of Farmerville</p>
+                  <p className="font-serif text-base">409 Thomas St</p>
+                  <p className="font-serif text-base">Farmerville, Louisiana</p>
                 </div>
               </div>
               <Button

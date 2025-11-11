@@ -21,14 +21,14 @@ export default function ContactSection() {
               <Mail className="h-14 w-14 text-primary" />
             </div>
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 text-primary">Get In Touch</h2>
-            <p className="text-foreground/80 text-lg md:text-xl mb-10 font-serif">
+            <p className="text-lg md:text-xl mb-10 font-serif">
               Have questions or need more information? We'd love to hear from you.
             </p>
             <div className="bg-accent/40 border border-primary/20 rounded-lg p-8 mb-10">
-              <p className="text-sm text-foreground/70 mb-3 font-serif">Email us at:</p>
+              <p className="text-sm opacity-75 mb-3 font-serif">Email us at:</p>
               <a
                 href={`mailto:${email}`}
-                className="text-2xl md:text-3xl font-bold text-primary hover:underline tracking-wide"
+                className="text-2xl md:text-3xl font-heading font-bold text-primary hover:underline tracking-wide"
                 data-testid="link-email"
               >
                 {email}

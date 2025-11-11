@@ -25,7 +25,7 @@ export default function PrayerTimes({ prayers }: PrayerTimesProps) {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 text-primary">Prayer Times</h2>
-          <p className="text-foreground/80 text-lg md:text-xl font-serif">Daily prayer schedule for today</p>
+          <p className="text-lg md:text-xl font-serif">Daily prayer schedule for today</p>
         </motion.div>
 
         <motion.div

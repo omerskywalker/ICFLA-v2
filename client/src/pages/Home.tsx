@@ -51,7 +51,7 @@ export default function Home() {
       </div>
       <footer className="bg-card/50 py-8 border-t border-primary/20">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-foreground/70 font-serif">
+          <p className="opacity-70 font-serif text-sm">
             © {new Date().getFullYear()} Islamic Center of Farmerville Louisiana. All rights reserved.
           </p>
         </div>
