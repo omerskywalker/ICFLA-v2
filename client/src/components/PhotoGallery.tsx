@@ -81,31 +81,35 @@ export default function PhotoGallery({ images, title = 'Inside Our Masjid' }: Ph
               <X className="h-6 w-6" />
             </Button>
 
-            <Button
-              size="icon"
-              variant="ghost"
-              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 text-primary hover:bg-primary/20 border border-primary/30 hidden sm:flex"
-              onClick={(e) => {
-                e.stopPropagation();
-                goToPrev();
-              }}
-              data-testid="button-prev-image"
-            >
-              <ChevronLeft className="h-6 w-6 md:h-8 md:w-8" />
-            </Button>
+            <div className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 hidden sm:block">
+              <Button
+                size="icon"
+                variant="ghost"
+                className="text-primary hover:bg-primary/20 border border-primary/30"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToPrev();
+                }}
+                data-testid="button-prev-image"
+              >
+                <ChevronLeft className="h-6 w-6 md:h-8 md:w-8" />
+              </Button>
+            </div>
 
-            <Button
-              size="icon"
-              variant="ghost"
-              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 text-primary hover:bg-primary/20 border border-primary/30 hidden sm:flex"
-              onClick={(e) => {
-                e.stopPropagation();
-                goToNext();
-              }}
-              data-testid="button-next-image"
-            >
-              <ChevronRight className="h-6 w-6 md:h-8 md:w-8" />
-            </Button>
+            <div className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 hidden sm:block">
+              <Button
+                size="icon"
+                variant="ghost"
+                className="text-primary hover:bg-primary/20 border border-primary/30"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToNext();
+                }}
+                data-testid="button-next-image"
+              >
+                <ChevronRight className="h-6 w-6 md:h-8 md:w-8" />
+              </Button>
+            </div>
 
             <motion.img
               key={selectedImage}
