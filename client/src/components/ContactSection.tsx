@@ -2,12 +2,14 @@ import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Mail } from 'lucide-react';
+import AnimatedBorder from './AnimatedBorder';
 
 export default function ContactSection() {
   const email = 'icfla786@gmail.com';
 
   return (
-    <section className="py-20 md:py-28 bg-background">
+    <AnimatedBorder delay={0.8}>
+      <section className="py-20 md:py-28 bg-background">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ y: 30, opacity: 0 }}
@@ -47,5 +49,6 @@ export default function ContactSection() {
         </motion.div>
       </div>
     </section>
+    </AnimatedBorder>
   );
 }

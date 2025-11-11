@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import AnimatedBorder from './AnimatedBorder';
 
 interface PhotoGalleryProps {
   images: string[];
@@ -17,7 +18,9 @@ export default function PhotoGallery({ images, title = 'Inside Our Masjid' }: Ph
   const goToPrev = () => setSelectedImage((prev) => (prev !== null ? (prev - 1 + images.length) % images.length : null));
 
   return (
-    <section className="py-20 md:py-28 bg-card/50">
+    <>
+    <AnimatedBorder delay={0.4}>
+      <section className="py-20 md:py-28 bg-card/50">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ y: 30, opacity: 0 }}
@@ -56,6 +59,8 @@ export default function PhotoGallery({ images, title = 'Inside Our Masjid' }: Ph
           ))}
         </div>
       </div>
+    </section>
+    </AnimatedBorder>
 
       <AnimatePresence>
         {selectedImage !== null && (
@@ -115,6 +120,6 @@ export default function PhotoGallery({ images, title = 'Inside Our Masjid' }: Ph
           </motion.div>
         )}
       </AnimatePresence>
-    </section>
+    </>
   );
 }

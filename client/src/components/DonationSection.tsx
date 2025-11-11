@@ -3,12 +3,14 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Smartphone, CreditCard, Mail, Bitcoin } from 'lucide-react';
 import bitcoinQR from '@assets/bitcoin-qr.png';
+import AnimatedBorder from './AnimatedBorder';
 
 export default function DonationSection() {
   const stripeUrl = 'https://donate.stripe.com/your-donation-link'; // Update with your actual Stripe donation link
 
   return (
-    <section id="donate" className="py-20 md:py-28 bg-background">
+    <AnimatedBorder delay={0.6}>
+      <section id="donate" className="py-20 md:py-28 bg-background">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ y: 30, opacity: 0 }}
@@ -138,5 +140,6 @@ export default function DonationSection() {
         </div>
       </div>
     </section>
+    </AnimatedBorder>
   );
 }

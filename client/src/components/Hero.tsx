@@ -23,7 +23,7 @@ export default function Hero({ images, title, subtitle }: HeroProps) {
   const goToPrev = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
 
   return (
-    <div className="relative h-[70vh] md:h-[85vh] overflow-hidden bg-black">
+    <div className="relative h-screen overflow-hidden bg-black">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
