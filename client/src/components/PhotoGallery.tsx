@@ -84,27 +84,27 @@ export default function PhotoGallery({ images, title = 'Inside Our Masjid' }: Ph
             <Button
               size="icon"
               variant="ghost"
-              className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 text-primary hover:bg-primary/20 border border-primary/30"
+              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 text-primary hover:bg-primary/20 border border-primary/30 hidden sm:flex"
               onClick={(e) => {
                 e.stopPropagation();
                 goToPrev();
               }}
               data-testid="button-prev-image"
             >
-              <ChevronLeft className="h-8 w-8" />
+              <ChevronLeft className="h-6 w-6 md:h-8 md:w-8" />
             </Button>
 
             <Button
               size="icon"
               variant="ghost"
-              className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 text-primary hover:bg-primary/20 border border-primary/30"
+              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 text-primary hover:bg-primary/20 border border-primary/30 hidden sm:flex"
               onClick={(e) => {
                 e.stopPropagation();
                 goToNext();
               }}
               data-testid="button-next-image"
             >
-              <ChevronRight className="h-8 w-8" />
+              <ChevronRight className="h-6 w-6 md:h-8 md:w-8" />
             </Button>
 
             <motion.img
