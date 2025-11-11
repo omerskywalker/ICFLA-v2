@@ -27,7 +27,7 @@ export default function PhotoGallery({ images, title = 'Inside Our Masjid' }: Ph
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 text-primary">{title}</h2>
-          <p className="text-muted-foreground text-lg md:text-xl font-serif">Explore our peaceful prayer space</p>
+          <p className="text-foreground/80 text-lg md:text-xl font-serif">Explore our peaceful prayer space</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

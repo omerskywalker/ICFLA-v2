@@ -18,7 +18,7 @@ export default function LocationMap() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 text-primary">Locate Us</h2>
-          <p className="text-muted-foreground text-lg md:text-xl font-serif">Visit us for prayers and community events</p>
+          <p className="text-foreground/80 text-lg md:text-xl font-serif">Visit us for prayers and community events</p>
         </motion.div>
 
         <motion.div
@@ -51,7 +51,7 @@ export default function LocationMap() {
                 </div>
                 <div>
                   <h3 className="font-heading font-bold text-xl mb-2 text-primary">Address</h3>
-                  <p className="text-muted-foreground font-serif">{address}</p>
+                  <p className="text-foreground/80 font-serif">{address}</p>
                 </div>
               </div>
               <Button
@@ -62,36 +62,6 @@ export default function LocationMap() {
                 <Navigation className="h-4 w-4 mr-2" />
                 Get Directions
               </Button>
-            </Card>
-
-            <Card className="p-6 md:p-8 hover-elevate border-primary/20 bg-gradient-to-br from-card to-accent/20">
-              <h3 className="font-heading font-bold text-xl mb-6 text-primary">Prayer Times</h3>
-              <div className="space-y-3 text-sm font-serif">
-                <div className="flex justify-between border-b border-border/50 pb-2">
-                  <span className="text-muted-foreground">Fajr:</span>
-                  <span className="font-semibold text-foreground">5:26 AM</span>
-                </div>
-                <div className="flex justify-between border-b border-border/50 pb-2">
-                  <span className="text-muted-foreground">Dhuhr:</span>
-                  <span className="font-semibold text-foreground">11:55 AM</span>
-                </div>
-                <div className="flex justify-between border-b border-border/50 pb-2">
-                  <span className="text-muted-foreground">Jumu'ah:</span>
-                  <span className="font-semibold text-foreground">1:30 PM</span>
-                </div>
-                <div className="flex justify-between border-b border-border/50 pb-2">
-                  <span className="text-muted-foreground">Asr:</span>
-                  <span className="font-semibold text-foreground">2:49 PM</span>
-                </div>
-                <div className="flex justify-between border-b border-border/50 pb-2">
-                  <span className="text-muted-foreground">Maghrib:</span>
-                  <span className="font-semibold text-foreground">5:11 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Isha:</span>
-                  <span className="font-semibold text-foreground">6:21 PM</span>
-                </div>
-              </div>
             </Card>
           </div>
         </motion.div>

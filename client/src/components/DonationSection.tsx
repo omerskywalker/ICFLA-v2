@@ -15,7 +15,7 @@ export default function DonationSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 text-primary">Become A Benefactor</h2>
-          <p className="text-muted-foreground text-lg md:text-xl font-serif">Support our community and help maintain our masjid</p>
+          <p className="text-foreground/80 text-lg md:text-xl font-serif">Support our community and help maintain our masjid</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -32,14 +32,14 @@ export default function DonationSection() {
                 </div>
                 <h3 className="text-2xl md:text-3xl font-heading font-bold text-primary">Donate with Zelle</h3>
               </div>
-              <p className="text-muted-foreground mb-8 font-serif text-base">
+              <p className="text-foreground/80 mb-8 font-serif text-base">
                 Quick and easy donation through Zelle. Send directly to our account.
               </p>
               <div className="bg-accent/40 border border-primary/20 rounded-lg p-8 mb-8 flex-grow flex items-center justify-center">
                 <div className="text-center">
                   <Mail className="h-10 w-10 text-primary mx-auto mb-4" />
-                  <p className="text-sm text-muted-foreground mb-3 font-serif">Send to:</p>
-                  <p className="text-xl md:text-2xl font-bold text-primary">ICFLA786@gmail.com</p>
+                  <p className="text-sm text-foreground/70 mb-3 font-serif">Send to:</p>
+                  <p className="text-xl md:text-2xl font-bold text-primary tracking-wide lowercase">icfla786@gmail.com</p>
                 </div>
               </div>
               <Button
@@ -66,7 +66,7 @@ export default function DonationSection() {
                 </div>
                 <h3 className="text-2xl md:text-3xl font-heading font-bold text-primary">Donate with Card</h3>
               </div>
-              <p className="text-muted-foreground mb-8 font-serif text-base">
+              <p className="text-foreground/80 mb-8 font-serif text-base">
                 Secure donation using credit or debit card through Stripe.
               </p>
               <div className="bg-accent/40 border border-primary/20 rounded-lg p-8 mb-8 flex-grow flex items-center justify-center">
@@ -74,7 +74,7 @@ export default function DonationSection() {
                   <div className="bg-primary/20 border border-primary/30 rounded-full p-8 inline-block mb-4">
                     <CreditCard className="h-14 w-14 text-primary" />
                   </div>
-                  <p className="text-sm text-muted-foreground font-serif">
+                  <p className="text-sm text-foreground/70 font-serif">
                     Accepts all major credit cards, Apple Pay, Google Pay, and more
                   </p>
                 </div>
