@@ -6,9 +6,10 @@ interface HeroProps {
   images: string[];
   title: string;
   subtitle: string;
+  subtitle2?: string;
 }
 
-export default function Hero({ images, title, subtitle }: HeroProps) {
+export default function Hero({ images, title, subtitle, subtitle2 }: HeroProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -63,14 +64,22 @@ export default function Hero({ images, title, subtitle }: HeroProps) {
           >
             {title}
           </motion.h1>
-          <motion.p
+          <motion.div
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.6, duration: 1 }}
             className="text-lg md:text-2xl lg:text-3xl mb-10 drop-shadow-xl font-serif text-foreground/95"
           >
-            {subtitle}
-          </motion.p>
+            <p className="mb-0">
+              {subtitle}
+              {subtitle2 && (
+                <>
+                  <span className="hidden md:inline"> - </span>
+                  <span className="block md:inline">{subtitle2}</span>
+                </>
+              )}
+            </p>
+          </motion.div>
           <motion.div
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}

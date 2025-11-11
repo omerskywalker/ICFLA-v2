@@ -93,7 +93,8 @@ export default function Home() {
       <Hero
         images={heroImages}
         title="Islamic Center of Farmerville Louisiana"
-        subtitle="Welcome to our community - Join us for prayer and fellowship"
+        subtitle="Welcome to our community"
+        subtitle2="Join us for prayer and fellowship"
       />
       {!isLoading && !isError && prayers.length > 0 && <PrayerTimes prayers={prayers} />}
       {isLoading && (
