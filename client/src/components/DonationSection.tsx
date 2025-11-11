@@ -6,7 +6,7 @@ import bitcoinQR from '@assets/bitcoin-qr.png';
 import AnimatedBorder from './AnimatedBorder';
 
 export default function DonationSection() {
-  const stripeUrl = 'https://donate.stripe.com/your-donation-link'; // Update with your actual Stripe donation link
+  const stripeUrl = 'https://donate.stripe.com/fZecPXch8c4T8Pm3cc';
 
   return (
     <AnimatedBorder delay={0.6}>

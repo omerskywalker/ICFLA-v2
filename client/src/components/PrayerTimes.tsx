@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
-import { Sunrise, Sunset } from 'lucide-react';
+import { Sunrise, Sunset, Clock } from 'lucide-react';
 import AnimatedBorder from './AnimatedBorder';
+import { useState, useEffect } from 'react';
 
 export interface PrayerTime {
   name: string;
@@ -14,7 +15,29 @@ interface PrayerTimesProps {
   prayers: PrayerTime[];
 }
 
+function getCurrentTime(): string {
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+  const period = hours >= 12 ? 'PM' : 'AM';
+  const hour12 = hours % 12 || 12;
+  const minuteStr = minutes.toString().padStart(2, '0');
+  const secondStr = seconds.toString().padStart(2, '0');
+  return `${hour12}:${minuteStr}:${secondStr} ${period}`;
+}
+
 export default function PrayerTimes({ prayers }: PrayerTimesProps) {
+  const [currentTime, setCurrentTime] = useState(getCurrentTime());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(getCurrentTime());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <AnimatedBorder delay={0.2}>
       <section id="prayer-times" className="py-20 md:py-28 bg-background">
@@ -28,6 +51,18 @@ export default function PrayerTimes({ prayers }: PrayerTimesProps) {
           >
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 text-primary">Prayer Times</h2>
             <p className="text-lg md:text-xl font-serif">Daily prayer schedule for today</p>
+            
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex items-center justify-center gap-2 mt-6"
+              data-testid="current-time-display"
+            >
+              <Clock className="h-5 w-5 text-primary" />
+              <span className="font-mono text-xl text-primary font-semibold">{currentTime}</span>
+            </motion.div>
           </motion.div>
 
           <motion.div

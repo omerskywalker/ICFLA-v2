@@ -38,22 +38,28 @@ function convertTo12Hour(time24: string): string {
   return `${hour12}:${minutes} ${period}`;
 }
 
-function getNextPrayer(timings: PrayerTimesResponse['timings']): string {
+function getCurrentPrayer(timings: PrayerTimesResponse['timings']): string {
   const now = new Date();
   const currentMinutes = now.getHours() * 60 + now.getMinutes();
   
   const prayerOrder = ['Fajr', 'Sunrise', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'] as const;
   
-  for (const prayer of prayerOrder) {
+  // Find the last prayer that has already passed
+  let currentPrayer = 'Isha'; // Default to Isha (end of day)
+  
+  for (let i = prayerOrder.length - 1; i >= 0; i--) {
+    const prayer = prayerOrder[i];
     const [hours, minutes] = timings[prayer].split(':');
     const prayerMinutes = parseInt(hours, 10) * 60 + parseInt(minutes, 10);
     
-    if (prayerMinutes > currentMinutes) {
-      return prayer;
+    // If this prayer time has passed, it's the current one
+    if (prayerMinutes <= currentMinutes) {
+      currentPrayer = prayer;
+      break;
     }
   }
   
-  return 'Fajr';
+  return currentPrayer;
 }
 
 export default function Home() {
@@ -66,14 +72,17 @@ export default function Home() {
     retry: 3, // Retry failed requests 3 times
   });
 
+  // Compute current prayer once per render to avoid inconsistent highlighting
+  const currentPrayer = prayerData ? getCurrentPrayer(prayerData.timings) : null;
+
   const prayers = prayerData ? [
-    { name: 'Fajr', time: convertTo12Hour(prayerData.timings.Fajr), isNext: getNextPrayer(prayerData.timings) === 'Fajr' },
-    { name: 'Sunrise', time: convertTo12Hour(prayerData.timings.Sunrise), icon: 'sunrise' as const, isNext: getNextPrayer(prayerData.timings) === 'Sunrise' },
-    { name: 'Dhuhr', time: convertTo12Hour(prayerData.timings.Dhuhr), isNext: getNextPrayer(prayerData.timings) === 'Dhuhr' },
+    { name: 'Fajr', time: convertTo12Hour(prayerData.timings.Fajr), isNext: currentPrayer === 'Fajr' },
+    { name: 'Sunrise', time: convertTo12Hour(prayerData.timings.Sunrise), icon: 'sunrise' as const, isNext: currentPrayer === 'Sunrise' },
+    { name: 'Dhuhr', time: convertTo12Hour(prayerData.timings.Dhuhr), isNext: currentPrayer === 'Dhuhr' },
     { name: "Jumu'ah", time: '1:30 PM' },
-    { name: 'Asr', time: convertTo12Hour(prayerData.timings.Asr), isNext: getNextPrayer(prayerData.timings) === 'Asr' },
-    { name: 'Maghrib', time: convertTo12Hour(prayerData.timings.Maghrib), icon: 'sunset' as const, isNext: getNextPrayer(prayerData.timings) === 'Maghrib' },
-    { name: 'Isha', time: convertTo12Hour(prayerData.timings.Isha), isNext: getNextPrayer(prayerData.timings) === 'Isha' },
+    { name: 'Asr', time: convertTo12Hour(prayerData.timings.Asr), isNext: currentPrayer === 'Asr' },
+    { name: 'Maghrib', time: convertTo12Hour(prayerData.timings.Maghrib), icon: 'sunset' as const, isNext: currentPrayer === 'Maghrib' },
+    { name: 'Isha', time: convertTo12Hour(prayerData.timings.Isha), isNext: currentPrayer === 'Isha' },
   ] : [];
 
   const galleryImages = [mosqueInterior1, mosqueInterior2, mosqueInterior3];
