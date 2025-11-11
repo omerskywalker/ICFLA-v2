@@ -52,17 +52,21 @@ export default function Navigation() {
 
             <div className="hidden md:flex items-center gap-8">
               {navItems.map((item, index) => (
-                <motion.button
+                <motion.div
                   key={item.id}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * index }}
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-foreground hover:text-primary transition-colors font-medium font-serif"
-                  data-testid={`nav-${item.id}`}
+                  className="nav-item-wrapper"
                 >
-                  {item.label}
-                </motion.button>
+                  <button
+                    onClick={() => scrollToSection(item.id)}
+                    className="text-foreground hover:text-primary transition-colors font-medium font-serif relative z-10"
+                    data-testid={`nav-${item.id}`}
+                  >
+                    {item.label}
+                  </button>
+                </motion.div>
               ))}
             </div>
 
