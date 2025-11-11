@@ -68,13 +68,13 @@ export default function PhotoGallery({ images, title = 'Inside Our Masjid' }: Ph
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-2 md:p-4"
             onClick={closeLightbox}
           >
             <Button
               size="icon"
               variant="ghost"
-              className="absolute top-4 right-4 text-primary hover:bg-primary/20 border border-primary/30"
+              className="absolute top-2 right-2 md:top-4 md:right-4 text-primary hover:bg-primary/20 border border-primary/30 z-10"
               onClick={closeLightbox}
               data-testid="button-close-lightbox"
             >
@@ -84,7 +84,7 @@ export default function PhotoGallery({ images, title = 'Inside Our Masjid' }: Ph
             <Button
               size="icon"
               variant="ghost"
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-primary hover:bg-primary/20 border border-primary/30"
+              className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 text-primary hover:bg-primary/20 border border-primary/30"
               onClick={(e) => {
                 e.stopPropagation();
                 goToPrev();
@@ -97,7 +97,7 @@ export default function PhotoGallery({ images, title = 'Inside Our Masjid' }: Ph
             <Button
               size="icon"
               variant="ghost"
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-primary hover:bg-primary/20 border border-primary/30"
+              className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 text-primary hover:bg-primary/20 border border-primary/30"
               onClick={(e) => {
                 e.stopPropagation();
                 goToNext();
@@ -114,7 +114,7 @@ export default function PhotoGallery({ images, title = 'Inside Our Masjid' }: Ph
               exit={{ scale: 0.8, opacity: 0 }}
               src={images[selectedImage]}
               alt={`Mosque interior ${selectedImage + 1}`}
-              className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg border-2 border-primary/30"
+              className="max-h-[85vh] md:max-h-[90vh] max-w-[95vw] md:max-w-[90vw] object-contain rounded-lg border-2 border-primary/30"
               onClick={(e) => e.stopPropagation()}
             />
           </motion.div>
