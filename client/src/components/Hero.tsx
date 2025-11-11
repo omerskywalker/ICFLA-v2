@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface HeroProps {
@@ -18,9 +17,6 @@ export default function Hero({ images, title, subtitle }: HeroProps) {
     }, 8000);
     return () => clearInterval(timer);
   }, [images.length]);
-
-  const goToNext = () => setCurrentIndex((prev) => (prev + 1) % images.length);
-  const goToPrev = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
 
   return (
     <div className="relative h-screen overflow-hidden bg-black">
@@ -101,25 +97,6 @@ export default function Hero({ images, title, subtitle }: HeroProps) {
           </motion.div>
         </div>
       </div>
-
-      <Button
-        size="icon"
-        variant="ghost"
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-primary hover:bg-primary/20 backdrop-blur-sm border border-primary/30"
-        onClick={goToPrev}
-        data-testid="button-prev-slide"
-      >
-        <ChevronLeft className="h-8 w-8" />
-      </Button>
-      <Button
-        size="icon"
-        variant="ghost"
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-primary hover:bg-primary/20 backdrop-blur-sm border border-primary/30"
-        onClick={goToNext}
-        data-testid="button-next-slide"
-      >
-        <ChevronRight className="h-8 w-8" />
-      </Button>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
         {images.map((_, index) => (
