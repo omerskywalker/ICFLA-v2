@@ -66,7 +66,43 @@ export default function Home() {
   const heroImages = [pattern1, pattern2, pattern3];
   
   const { data: prayerData, isLoading, isError } = useQuery<PrayerTimesResponse>({
-    queryKey: ['/api/prayer-times'],
+    queryKey: ['prayer-times'],
+    queryFn: async () => {
+      const city = "Farmerville";
+      const state = "Louisiana";
+      const country = "US";
+      const method = 2; // ISNA (Islamic Society of North America)
+      
+      const response = await fetch(
+        `https://api.aladhan.com/v1/timingsByCity?city=${city}&state=${state}&country=${country}&method=${method}`
+      );
+      
+      if (!response.ok) {
+        throw new Error(`Prayer times API error: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      
+      if (data.code !== 200) {
+        throw new Error("Invalid response from prayer times API");
+      }
+      
+      const timings = data.data.timings;
+      const meta = data.data.meta;
+      
+      return {
+        timings: {
+          Fajr: timings.Fajr,
+          Sunrise: timings.Sunrise,
+          Dhuhr: timings.Dhuhr,
+          Asr: timings.Asr,
+          Maghrib: timings.Maghrib,
+          Isha: timings.Isha,
+        },
+        date: data.data.date.readable,
+        timezone: meta.timezone,
+      };
+    },
     refetchInterval: 60000, // Refetch every minute to update "next prayer" indicator
     staleTime: 300000, // Consider data stale after 5 minutes
     retry: 3, // Retry failed requests 3 times
