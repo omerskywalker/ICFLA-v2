@@ -15,49 +15,49 @@ interface PrayerTimesProps {
 
 export default function PrayerTimes({ prayers }: PrayerTimesProps) {
   return (
-    <section id="prayer-times" className="py-16 md:py-24 bg-background">
+    <section id="prayer-times" className="py-20 md:py-28 bg-background">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
-          initial={{ y: 20, opacity: 0 }}
+          initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Prayer Times</h2>
-          <p className="text-muted-foreground text-lg">Daily prayer schedule for today</p>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 text-primary">Prayer Times</h2>
+          <p className="text-muted-foreground text-lg md:text-xl font-serif">Daily prayer schedule for today</p>
         </motion.div>
 
         <motion.div
-          initial={{ y: 20, opacity: 0 }}
+          initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <Card className="max-w-3xl mx-auto p-6 md:p-8 bg-gradient-to-br from-card to-accent/20 border-card-border">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <Card className="max-w-4xl mx-auto p-8 md:p-10 bg-gradient-to-br from-card via-card to-accent/30 border-primary/20 shadow-xl shadow-primary/5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {prayers.map((prayer, index) => (
                 <motion.div
                   key={prayer.name}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className={`flex items-center justify-between p-4 rounded-lg transition-all duration-300 ${
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={`flex items-center justify-between p-5 rounded-lg transition-all duration-300 ${
                     prayer.isNext
-                      ? 'bg-primary/10 border-2 border-primary/30 animate-pulse'
-                      : 'bg-background/50 hover-elevate'
+                      ? 'bg-primary/15 border-2 border-primary/40 shadow-lg shadow-primary/10'
+                      : 'bg-background/70 hover-elevate border border-border/50'
                   }`}
                   data-testid={`prayer-${prayer.name.toLowerCase()}`}
                 >
-                  <div className="flex items-center gap-3">
-                    {prayer.icon === 'sunrise' && <Sunrise className="h-5 w-5 text-primary" />}
-                    {prayer.icon === 'sunset' && <Sunset className="h-5 w-5 text-primary" />}
-                    <span className={`font-semibold text-lg ${prayer.isNext ? 'text-primary' : ''}`}>
+                  <div className="flex items-center gap-4">
+                    {prayer.icon === 'sunrise' && <Sunrise className="h-6 w-6 text-primary" />}
+                    {prayer.icon === 'sunset' && <Sunset className="h-6 w-6 text-primary" />}
+                    <span className={`font-semibold text-xl ${prayer.isNext ? 'text-primary' : 'text-foreground'}`}>
                       {prayer.name}
                     </span>
                   </div>
-                  <span className={`font-mono text-lg ${prayer.isNext ? 'text-primary font-bold' : 'text-foreground'}`}>
+                  <span className={`font-mono text-xl ${prayer.isNext ? 'text-primary font-bold' : 'text-foreground/90'}`}>
                     {prayer.time}
                   </span>
                 </motion.div>

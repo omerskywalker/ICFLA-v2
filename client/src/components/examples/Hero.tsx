@@ -1,12 +1,12 @@
 import Hero from '../Hero';
-import mosqueInterior1 from '@assets/generated_images/Mosque_prayer_hall_interior_9994f2df.png';
-import mosqueInterior2 from '@assets/generated_images/Mosque_dome_ceiling_interior_7518ac87.png';
-import mosqueInterior3 from '@assets/generated_images/Mosque_entrance_hall_5ae87aed.png';
+import pattern1 from '@assets/generated_images/Islamic_geometric_pattern_gold_teal_f662d4f2.png';
+import pattern2 from '@assets/generated_images/Islamic_pattern_turquoise_gold_0d33383a.png';
+import pattern3 from '@assets/generated_images/Islamic_geometric_gold_blue_daf2c09f.png';
 
 export default function HeroExample() {
   return (
     <Hero
-      images={[mosqueInterior1, mosqueInterior2, mosqueInterior3]}
+      images={[pattern1, pattern2, pattern3]}
       title="Islamic Center of Farmerville Louisiana"
       subtitle="Welcome to our community - Join us for prayer and fellowship"
     />

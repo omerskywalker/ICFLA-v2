@@ -15,7 +15,7 @@ export default function Hero({ images, title, subtitle }: HeroProps) {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 5000);
+    }, 8000);
     return () => clearInterval(timer);
   }, [images.length]);
 
@@ -23,52 +23,67 @@ export default function Hero({ images, title, subtitle }: HeroProps) {
   const goToPrev = () => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
 
   return (
-    <div className="relative h-[70vh] md:h-[80vh] overflow-hidden bg-black">
+    <div className="relative h-[70vh] md:h-[85vh] overflow-hidden bg-black">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 1.5 }}
           className="absolute inset-0"
         >
-          <img
-            src={images[currentIndex]}
-            alt={`Mosque interior ${currentIndex + 1}`}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70" />
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute inset-0 animate-rotate-slow opacity-30">
+              <img
+                src={images[currentIndex]}
+                alt="Islamic geometric pattern"
+                className="w-full h-full object-cover"
+                style={{ transformOrigin: 'center center' }}
+              />
+            </div>
+            <div className="absolute inset-0 animate-rotate-reverse opacity-20">
+              <img
+                src={images[(currentIndex + 1) % images.length]}
+                alt="Islamic geometric pattern"
+                className="w-full h-full object-cover"
+                style={{ transformOrigin: 'center center' }}
+              />
+            </div>
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/85" />
+          <div className="absolute inset-0 animate-pulse-glow bg-gradient-to-t from-primary/10 via-transparent to-transparent" />
         </motion.div>
       </AnimatePresence>
 
       <div className="absolute inset-0 flex items-center justify-center z-10">
-        <div className="text-center text-white px-4 max-w-4xl">
+        <div className="text-center text-white px-4 max-w-5xl">
           <motion.h1
-            initial={{ y: 30, opacity: 0 }}
+            initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg"
+            transition={{ delay: 0.4, duration: 1 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 drop-shadow-2xl text-primary"
+            style={{ textShadow: '0 0 40px rgba(217, 163, 64, 0.3)' }}
           >
             {title}
           </motion.h1>
           <motion.p
-            initial={{ y: 20, opacity: 0 }}
+            initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-lg md:text-2xl mb-8 drop-shadow-md"
+            transition={{ delay: 0.6, duration: 1 }}
+            className="text-lg md:text-2xl lg:text-3xl mb-10 drop-shadow-xl font-serif text-foreground/95"
           >
             {subtitle}
           </motion.p>
           <motion.div
-            initial={{ y: 20, opacity: 0 }}
+            initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-            className="flex gap-4 justify-center"
+            transition={{ delay: 0.8, duration: 1 }}
+            className="flex flex-wrap gap-4 justify-center"
           >
             <Button
               size="lg"
-              className="bg-primary/90 backdrop-blur-sm hover:bg-primary"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8"
               onClick={() => document.getElementById('prayer-times')?.scrollIntoView({ behavior: 'smooth' })}
               data-testid="button-prayer-times"
             >
@@ -77,7 +92,7 @@ export default function Hero({ images, title, subtitle }: HeroProps) {
             <Button
               size="lg"
               variant="outline"
-              className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
+              className="bg-background/10 backdrop-blur-sm border-primary/50 text-foreground hover:bg-background/20 font-semibold text-lg px-8"
               onClick={() => document.getElementById('donate')?.scrollIntoView({ behavior: 'smooth' })}
               data-testid="button-donate"
             >
@@ -90,7 +105,7 @@ export default function Hero({ images, title, subtitle }: HeroProps) {
       <Button
         size="icon"
         variant="ghost"
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-white hover:bg-white/20 backdrop-blur-sm"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-primary hover:bg-primary/20 backdrop-blur-sm border border-primary/30"
         onClick={goToPrev}
         data-testid="button-prev-slide"
       >
@@ -99,20 +114,22 @@ export default function Hero({ images, title, subtitle }: HeroProps) {
       <Button
         size="icon"
         variant="ghost"
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-white hover:bg-white/20 backdrop-blur-sm"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-primary hover:bg-primary/20 backdrop-blur-sm border border-primary/30"
         onClick={goToNext}
         data-testid="button-next-slide"
       >
         <ChevronRight className="h-8 w-8" />
       </Button>
 
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentIndex ? 'bg-white w-8' : 'bg-white/50 hover:bg-white/75'
+            className={`rounded-full transition-all duration-500 ${
+              index === currentIndex 
+                ? 'bg-primary w-10 h-3 shadow-lg shadow-primary/50' 
+                : 'bg-primary/40 w-3 h-3 hover:bg-primary/60'
             }`}
             data-testid={`button-slide-${index}`}
           />

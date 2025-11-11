@@ -17,17 +17,17 @@ export default function PhotoGallery({ images, title = 'Inside Our Masjid' }: Ph
   const goToPrev = () => setSelectedImage((prev) => (prev !== null ? (prev - 1 + images.length) % images.length : null));
 
   return (
-    <section className="py-16 md:py-24 bg-accent/20">
+    <section className="py-20 md:py-28 bg-card/50">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
-          initial={{ y: 20, opacity: 0 }}
+          initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
-          <p className="text-muted-foreground text-lg">Explore our peaceful prayer space</p>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 text-primary">{title}</h2>
+          <p className="text-muted-foreground text-lg md:text-xl font-serif">Explore our peaceful prayer space</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -37,18 +37,18 @@ export default function PhotoGallery({ images, title = 'Inside Our Masjid' }: Ph
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-lg cursor-pointer aspect-video"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group relative overflow-hidden rounded-lg cursor-pointer aspect-video border-2 border-primary/20 hover:border-primary/40 transition-all duration-300"
               onClick={() => openLightbox(index)}
               data-testid={`gallery-image-${index}`}
             >
               <img
                 src={image}
                 alt={`Mosque interior ${index + 1}`}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                <span className="text-primary font-semibold text-lg font-heading">
                   View Image
                 </span>
               </div>
@@ -69,7 +69,7 @@ export default function PhotoGallery({ images, title = 'Inside Our Masjid' }: Ph
             <Button
               size="icon"
               variant="ghost"
-              className="absolute top-4 right-4 text-white hover:bg-white/20"
+              className="absolute top-4 right-4 text-primary hover:bg-primary/20 border border-primary/30"
               onClick={closeLightbox}
               data-testid="button-close-lightbox"
             >
@@ -79,7 +79,7 @@ export default function PhotoGallery({ images, title = 'Inside Our Masjid' }: Ph
             <Button
               size="icon"
               variant="ghost"
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-primary hover:bg-primary/20 border border-primary/30"
               onClick={(e) => {
                 e.stopPropagation();
                 goToPrev();
@@ -92,7 +92,7 @@ export default function PhotoGallery({ images, title = 'Inside Our Masjid' }: Ph
             <Button
               size="icon"
               variant="ghost"
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-primary hover:bg-primary/20 border border-primary/30"
               onClick={(e) => {
                 e.stopPropagation();
                 goToNext();
@@ -109,7 +109,7 @@ export default function PhotoGallery({ images, title = 'Inside Our Masjid' }: Ph
               exit={{ scale: 0.8, opacity: 0 }}
               src={images[selectedImage]}
               alt={`Mosque interior ${selectedImage + 1}`}
-              className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg"
+              className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg border-2 border-primary/30"
               onClick={(e) => e.stopPropagation()}
             />
           </motion.div>

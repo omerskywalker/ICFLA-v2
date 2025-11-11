@@ -36,7 +36,7 @@ export default function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-background/95 backdrop-blur-md shadow-md' : 'bg-transparent'
+          isScrolled ? 'bg-background/95 backdrop-blur-md shadow-lg border-b border-primary/20' : 'bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4">
@@ -45,7 +45,7 @@ export default function Navigation() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="font-bold text-xl md:text-2xl text-primary"
+              className="font-heading font-bold text-xl md:text-2xl text-primary"
             >
               ICF Louisiana
             </motion.div>
@@ -58,7 +58,7 @@ export default function Navigation() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * index }}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-foreground hover:text-primary transition-colors font-medium"
+                  className="text-foreground hover:text-primary transition-colors font-medium font-serif"
                   data-testid={`nav-${item.id}`}
                 >
                   {item.label}
@@ -69,7 +69,7 @@ export default function Navigation() {
             <Button
               size="icon"
               variant="ghost"
-              className="md:hidden"
+              className="md:hidden text-primary hover:bg-primary/20"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               data-testid="button-mobile-menu"
             >
@@ -88,7 +88,7 @@ export default function Navigation() {
             transition={{ type: 'tween' }}
             className="fixed inset-0 z-40 bg-background md:hidden"
           >
-            <div className="flex flex-col items-center justify-center h-full gap-8">
+            <div className="flex flex-col items-center justify-center h-full gap-10">
               {navItems.map((item, index) => (
                 <motion.button
                   key={item.id}
@@ -96,7 +96,7 @@ export default function Navigation() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * index }}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-2xl font-semibold text-foreground hover:text-primary transition-colors"
+                  className="text-3xl font-heading font-semibold text-foreground hover:text-primary transition-colors"
                   data-testid={`mobile-nav-${item.id}`}
                 >
                   {item.label}
